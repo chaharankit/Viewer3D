@@ -1,0 +1,35 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <div>
+      <span class="navbar-brand mb-0 h1">Viewer3D</span>
+      <img
+        class="img"
+        src="//aps.autodesk.com/static/1.0.0.20240213000918/images/aps-logo--black.svg"
+      />
+    </div>
+    <div>
+      <div class="btn-group">
+        <button
+          class="btn btn-secondary btn-sm dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ selectedFile }}
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let item of objectList" (click)="onFileSelected(item)">
+            {{ item["objectKey"] }}
+          </li>
+        </ul>
+        <button
+          class="btn btn-secondary ms-1 btn-sm"
+          type="button"
+          aria-expanded="false"
+        >
+          <i class="bi bi-cloud-upload"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

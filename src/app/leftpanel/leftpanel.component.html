@@ -1,0 +1,118 @@
+<div class="left-panel-body">
+  <!-- Button trigger modal -->
+  <div class="toast-container top-0 end-0 p-3">
+    <div
+      class="toast align-items-center text-bg-primary border-0"
+      top-0
+      end-0
+      id="my-toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body">{{ toastMessage }}</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Create Bucket
+  </button>
+  <button type="button" class="btn btn-primary" (click)="functionCall()">
+    Show All Buckets
+  </button>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Create Bucket
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="table">
+            <div class="row">
+              <div class="cell">Bucket name:</div>
+              <div class="cell-data">
+                <input
+                  [(ngModel)]="newBucketName"
+                  type="text"
+                  placeholder="Enter bucket name"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="cell">Bucket type:</div>
+              <div class="cell-data">
+                <select [(ngModel)]="newBucketType">
+                  <option selected="true" value="transient">Transient</option>
+                  <option value="temporary">Temporary</option>
+                  <option value="persistent">Persistent</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            (click)="SubmitBucketDetails()"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Buckets:</p>
+  <div
+    *ngFor="let item of bucketList"
+    (click)="GetBucketItems($event, item['bucketKey'])"
+  >
+    {{ item["bucketKey"] }}
+    <i
+      (click)="DeleteBucket($event, item['bucketKey'])"
+      class="bi bi-trash3-fill"
+    ></i>
+    
+  </div>
+</div>

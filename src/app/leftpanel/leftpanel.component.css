@@ -1,0 +1,40 @@
+.left-panel-body{
+    padding: 1rem;
+}
+.sub-list{
+    margin-left: 20px;
+}
+
+.modal{
+    color: black;
+}
+.table {
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding: 8px;
+    width: 30%; /* Each cell takes up half the width */
+}
+.cell-data{
+    display: table-cell;
+    padding: 8px;
+    width: 70%; /* Each cell takes up half the width */
+}
+input, select {
+    width: 100%; /* Make input and select elements fill their parent container */
+}
+
+@media (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    .cell {
+        display: block;
+        width: 100%;
+    }
+}

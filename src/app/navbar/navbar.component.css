@@ -1,0 +1,15 @@
+.img{
+    height: 20px;
+    width: 100px;
+}
+.dropdown-menu{
+    text-align: center !important;
+    min-width: 16rem;
+}
+.dropdown-menu[data-bs-popper]{
+    right: 0 !important;
+    left: unset !important;
+}
+li:hover{
+    color: blueviolet;
+}
