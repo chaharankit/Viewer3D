@@ -7,13 +7,13 @@ import { Observable, catchError, map, of } from 'rxjs';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  ClientId: string = '81UMCWAWWVl8i7ZhHqSE4XkUy2xovLP1';
-  ClientSecret: string = 'GQELZbezHcsnASRv';
+  ClientId: string = 'RJw3sjtXLLatKjGe71i8XPkGCzdvhDicVRtThhNgKBYmTkL9';
+  ClientSecret: string = 'Z8ZC2HRtLteJx0Dx7Sh4lj1BIcjXLU1HC4Wuz3SA2GV49KCxqdtYV8NaPg7yPdhm';
   baseUrl: string = 'https://developer.api.autodesk.com';
   url: string = '/authentication/v2/token';
   private apiUrl = 'https://developer.api.autodesk.com/authentication/v2/token';
-  private clientId = '81UMCWAWWVl8i7ZhHqSE4XkUy2xovLP1';
-  private clientSecret = 'GQELZbezHcsnASRv';
+  private clientId = 'RJw3sjtXLLatKjGe71i8XPkGCzdvhDicVRtThhNgKBYmTkL9';
+  private clientSecret = 'Z8ZC2HRtLteJx0Dx7Sh4lj1BIcjXLU1HC4Wuz3SA2GV49KCxqdtYV8NaPg7yPdhm';
   private authToken: any | null = null;
   generateToken(): Observable<any> {
     if (this.authToken) {

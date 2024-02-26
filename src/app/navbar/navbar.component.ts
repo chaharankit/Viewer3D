@@ -14,6 +14,10 @@ import { ViewerService } from '../Services/viewer.service';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnDestroy {
+  onUploadFileSelected($event: any) {
+    this.newFileForUpload = $event.target.files[0];
+    console.log(this.newFileForUpload);
+  }
   onFileSelected(_t12: any) {
     this.selectedFile = _t12.objectKey;
     const urn = btoa(_t12['objectId']);
@@ -25,6 +29,7 @@ export class NavbarComponent implements OnDestroy {
   selectedFile: any = 'Select A File';
   authtoken: string = '';
   objectList: any;
+  newFileForUpload: File | null = null;
   constructor(
     private sharedService: ButtonClickService,
     private bucketService: BucketService,
