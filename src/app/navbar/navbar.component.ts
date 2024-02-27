@@ -15,6 +15,7 @@ import { UploadKey } from '../models/bucket-create';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnDestroy {
+  isClassRemoved: boolean = false;
   keyPressed($event: KeyboardEvent) {
     console.log($event);
   }
@@ -74,6 +75,7 @@ export class NavbarComponent implements OnDestroy {
       );
   }
   uploadFileClicked() {
+    this.isClassRemoved=true;
     this.fileService
       .UploadFileOnUrl(this.newFileForUpload, this.uploadUrl)
       .subscribe(
@@ -102,8 +104,9 @@ export class NavbarComponent implements OnDestroy {
                       console.log(response);
                       this.intervalId = setInterval(() => {
                         if (this.CheckRequirement()) {
-                          alert('file ready for viewing');
+                          //alert('file ready for viewing');
                           this.stopInterval();
+                          this.isClassRemoved=false;
                         } else {
                           this.fileService
                             .CheckManifest(this.uploadedFileUrn, this.authtoken)
@@ -118,7 +121,7 @@ export class NavbarComponent implements OnDestroy {
                               }
                             );
                         }
-                      },2000);
+                      }, 2000);
                     },
                     (error) => {
                       console.log(error);

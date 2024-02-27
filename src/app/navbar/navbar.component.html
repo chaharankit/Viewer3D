@@ -72,7 +72,14 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-primary" (click)="uploadFileClicked()">Upload</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="uploadFileClicked()"
+        >
+        <span class="spinner-border spinner-border-sm" [ngClass]="{'visually-hidden':!isClassRemoved}" aria-hidden="true"></span>
+        <span class="" role="status">Upload</span>
+        </button>
       </div>
     </div>
   </div>
